@@ -9,3 +9,7 @@ dist/
 
 # System files
 .DS_Store
+
+# Playwright
+playwright-report/
+test-results/
