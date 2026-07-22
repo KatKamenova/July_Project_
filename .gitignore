@@ -1,0 +1,11 @@
+# Node dependencies
+node_modules/
+
+# Production build output
+dist/
+
+# VS Code settings
+.vscode/
+
+# System files
+.DS_Store
