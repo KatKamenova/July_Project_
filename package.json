@@ -1,0 +1,25 @@
+{
+  "name": "july_project_",
+  "version": "1.0.0",
+  "description": "A small practice project for testing a demo website",
+  "main": "script.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KatKamenova/July_Project_.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KatKamenova/July_Project_/issues"
+  },
+  "homepage": "https://github.com/KatKamenova/July_Project_#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1"
+  }
+}
