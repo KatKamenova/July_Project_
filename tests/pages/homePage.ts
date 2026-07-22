@@ -1,22 +1,25 @@
-const { expect } = require('@playwright/test');
+import { expect, type Page } from '@playwright/test';
 
 class HomePage {
-  constructor(page) {
+  private page: Page;
+  private titleText = 'Practice Software Testing';
+  private heroText = 'Practice Black Box Testing';
+  private categoriesNav;
+
+  constructor(page: Page) {
     this.page = page;
-    this.titleText = 'Practice Software Testing';
-    this.heroText = 'Practice Black Box Testing';
     this.categoriesNav = page.locator('[data-test="nav-categories"]');
   }
 
-  async open() {
+  async open(): Promise<void> {
     await this.page.goto('/');
   }
 
-  async expectLoaded() {
+  async expectLoaded(): Promise<void> {
     await expect(this.page).toHaveTitle(new RegExp(this.titleText, 'i'));
     await expect(this.page.getByText(new RegExp(this.heroText, 'i'))).toBeVisible();
     await expect(this.categoriesNav).toBeVisible();
   }
 }
 
-module.exports = HomePage;
+export default HomePage;

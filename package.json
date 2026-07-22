@@ -7,6 +7,13 @@
     "test": "playwright test",
     "test:headed": "playwright test --headed"
   },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KatKamenova/July_Project_.git"
@@ -14,12 +21,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/KatKamenova/July_Project_/issues"
   },
   "homepage": "https://github.com/KatKamenova/July_Project_#readme",
-  "devDependencies": {
-    "@playwright/test": "^1.61.1"
-  }
 }
