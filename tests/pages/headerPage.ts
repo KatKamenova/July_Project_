@@ -1,7 +1,14 @@
-const { expect } = require('@playwright/test');
+import { expect, type Page } from '@playwright/test';
 
 class HeaderPage {
-  constructor(page) {
+  private page: Page;
+  private homeLink;
+  private categoriesLink;
+  private contactLink;
+  private signInLink;
+  private LanguageSelector;
+
+  constructor(page: Page) {
     this.page = page;
     this.homeLink = page.locator('[data-test="nav-home"]');
     this.categoriesLink = page.locator('[data-test="nav-categories"]');
@@ -10,32 +17,32 @@ class HeaderPage {
     this.LanguageSelector = page.locator('#language');
   }
 
-  async expectVisible() {
+  async expectVisible(): Promise<void> {
     await expect(this.homeLink).toBeVisible();
     await expect(this.categoriesLink).toBeVisible();
     await expect(this.contactLink).toBeVisible();
     await expect(this.LanguageSelector).toBeVisible();
   }
 
-  async openSignIn() {
+  async openSignIn(): Promise<void> {
     await this.signInLink.click();
   }
 
-  async clickHome() {
+  async clickHome(): Promise<void> {
     await this.homeLink.click();
   }
 
-  async clickCategories() {
+  async clickCategories(): Promise<void> {
     await this.categoriesLink.click();
   }
 
-  async clickContact() {
+  async clickContact(): Promise<void> {
     await this.contactLink.click();
   }
 
-  async clickLanguage() {
+  async clickLanguage(): Promise<void> {
     await this.LanguageSelector.click();
   }
 }
 
-module.exports = HeaderPage;
+export default HeaderPage;

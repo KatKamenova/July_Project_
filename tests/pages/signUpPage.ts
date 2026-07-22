@@ -1,7 +1,15 @@
-const { expect } = require('@playwright/test');
+import { expect, type Page } from '@playwright/test';
 
 class SignUpPage {
-  constructor(page) {
+  private page: Page;
+  private firstNameInput;
+  private lastNameInput;
+  private emailInput;
+  private passwordInput;
+  private signUpButton;
+  private errorMessage;
+
+  constructor(page: Page) {
     this.page = page;
     this.firstNameInput = page.locator('input[name="first_name"]');
     this.lastNameInput = page.locator('input[name="last_name"]');
@@ -11,11 +19,11 @@ class SignUpPage {
     this.errorMessage = page.locator('.alert-danger');
   }
 
-  async open() {
+  async open(): Promise<void> {
     await this.page.goto('/auth/register');
   }
 
-  async register({ firstName, lastName, username, password }) {
+  async register({ firstName, lastName, username, password }: { firstName: string; lastName: string; username: string; password: string }): Promise<void> {
     await this.firstNameInput.fill(firstName);
     await this.lastNameInput.fill(lastName);
     await this.emailInput.fill(username);
@@ -23,9 +31,9 @@ class SignUpPage {
     await this.signUpButton.click();
   }
 
-  async expectErrorVisible() {
+  async expectErrorVisible(): Promise<void> {
     await expect(this.errorMessage).toBeVisible();
   }
 }
 
-module.exports = SignUpPage;
+export default SignUpPage;
