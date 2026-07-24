@@ -13,7 +13,7 @@ test.describe('Authentication flow', () => {
   });
 });
 
-// test.describe('Unsuccessful login attempts', () => {
+test.describe('Unsuccessful login attempts', () => {
 //   test('Invalid credentials show an error message', { tag: ['@regression'] }, async ({ page }) => {
 //     const loginPage = new LoginPage(page);
 

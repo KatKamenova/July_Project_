@@ -8,7 +8,11 @@ class FooterPage {
   constructor(page: Page) {
     this.page = page;
     this.privacyPolicyLink = page.getByRole('link', { name: /privacy policy/i });
-    this.demoMessage = page.getByText(/this is a demo application/i);
+    this.demoMessage = page.getByText(/This is a DEMO application/i);
+  }
+
+  async open(): Promise<void> {
+    await this.page.goto('/');
   }
 
 }
