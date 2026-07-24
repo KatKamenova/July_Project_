@@ -2,7 +2,9 @@
 
 A small practice project for building and testing a demo website with Playwright, TypeScript, and a simple front-end experience.
 
-Open `https://practicesoftwaretesting.com/` in your browser to view the demo site.
+The default application base URL for this project is `https://practicesoftwaretesting.com/`.
+
+Open that URL in your browser to view the demo site.
 
 This repository contains:
 
@@ -21,7 +23,7 @@ This repository contains:
 
 ## Tech Stack
 
-- HTML/CSS/JavaScript (TypeScript)
+- HTML/CSS/ (TypeScript)
 - Playwright
 - TypeScript
 - Node.js
@@ -44,7 +46,9 @@ npm install
 
 ## Running the Demo Website
 
-You can open [index.html](index.html) directly in a browser, or use any local static server if you prefer.
+The project is configured to use the base URL `https://practicesoftwaretesting.com/`.
+
+You can open the live application at `https://practicesoftwaretesting.com/`, or use the local project files as a reference while working on the tests and automation setup.
 
 Example with a simple live server:
 
@@ -56,7 +60,7 @@ Then open the displayed local URL in your browser.
 
 ## Running Tests
 
-The project uses Playwright for end-to-end testing.
+The project uses Playwright for end-to-end testing against the base URL `https://practicesoftwaretesting.com/`.
 
 Run the full test suite:
 
@@ -82,15 +86,43 @@ VALID_USER_PASSWORD=your-password
 
 ## Project Structure
 
-- [index.html](index.html) — main page layout and content
-- [styles.css](styles.css) — site styling
-- [script.ts](script.ts) — interactive UI behavior
-- [debug-login.ts](debug-login.ts) — Playwright login automation helper
+```text
+July_Project_/
+├── tests/                     # Playwright test specifications
+│   ├── homePage.spec.ts
+│   ├── login.spec.ts
+│   └── signUp.spec.ts
+├── pages/                     # Page Object classes
+│   ├── homePage.ts
+│   ├── loginPage.ts
+│   ├── signUpPage.ts
+│   ├── headerPage.ts
+│   ├── footerPage.ts
+│   └── forgotPasswordPage.ts
+├── enums/                     # Shared test data and constants
+│   └── credentials.ts
+├── playwright-report/         # Generated Playwright HTML report
+├── test-results/              # Test artifacts such as screenshots and traces
+├── index.html                 # Main demo page
+├── styles.css                 # Page styling
+├── script.ts                  # Demo page interactivity
+├── debug-login.ts             # Helper script for login automation
+├── playwright.config.ts       # Playwright configuration
+├── package.json               # Scripts and dependencies
+├── tsconfig.json              # TypeScript configuration
+├── README.md                  # Project documentation
+└── .env                       # Local environment variables
+```
+
+### Key folders
 - [tests](tests) — Playwright test specifications
-- [pages](pages) — page object classes for test reuse
+- [pages](pages) — page object classes used by the tests
 - [enums](enums) — shared test data and constants
-- [playwright.config.ts](playwright.config.ts) — Playwright configuration
-- [tsconfig.json](tsconfig.json) — TypeScript compiler settings
+- [playwright-report](playwright-report) — generated HTML reports
+- [test-results](test-results) — runtime artifacts from test runs
+- [playwright.config.ts](playwright.config.ts) — Playwright configuration and browser setup
+- [package.json](package.json) — project scripts and dependencies
+- [tsconfig.json](tsconfig.json) — TypeScript configuration
 
 ## Notes
 
