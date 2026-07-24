@@ -2,7 +2,7 @@
 
 A small practice project for building and testing a demo website with Playwright, TypeScript, and a simple front-end experience.
 
-## Overview
+Open `https://practicesoftwaretesting.com/` in your browser to view the demo site.
 
 This repository contains:
 
