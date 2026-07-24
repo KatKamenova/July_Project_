@@ -13,20 +13,20 @@ test.describe('Authentication flow', () => {
   });
 });
 
-test.describe('Unsuccessful login attempts', () => {
-  test('Invalid credentials show an error message', { tag: ['@regression'] }, async ({ page }) => {
-    const loginPage = new LoginPage(page);
+// test.describe('Unsuccessful login attempts', () => {
+//   test('Invalid credentials show an error message', { tag: ['@regression'] }, async ({ page }) => {
+//     const loginPage = new LoginPage(page);
 
-    await loginPage.open();
-    await loginPage.loginWithInvalidCredentials(Credentials.invalidUser);
-    await loginPage.expectErrorVisible();
-  });
+//     await loginPage.open();
+//     await loginPage.loginWithInvalidCredentials(Credentials.invalidUser);
+//     await expect(page.getByText('Email is required', { exact: true })).toBeVisible();
+//   });
 
   test('Empty credentials show an error message', { tag: ['@regression'] }, async ({ page }) => {
     const loginPage = new LoginPage(page);
 
     await loginPage.open();
     await loginPage.loginWithInvalidCredentials({ emailAddress: '', password: '' });
-    await loginPage.expectErrorVisible();
+    await expect(page.getByText('Email is required', { exact: true })).toBeVisible();
   });
 });

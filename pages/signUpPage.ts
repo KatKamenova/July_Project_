@@ -1,4 +1,4 @@
-import { expect, type Page } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 class SignUpPage {
   private page: Page;
@@ -55,9 +55,6 @@ class SignUpPage {
     await this.submitButton.click();
   }
 
-  async expectErrorVisible(): Promise<void> {
-    await expect(this.errorMessage).toBeVisible();
-  }
 }
 
 export default SignUpPage;

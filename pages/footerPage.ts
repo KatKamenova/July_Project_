@@ -1,4 +1,4 @@
-import { expect, type Page } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 class FooterPage {
   private page: Page;
@@ -11,10 +11,6 @@ class FooterPage {
     this.demoMessage = page.getByText(/this is a demo application/i);
   }
 
-  async expectVisible(): Promise<void> {
-    await expect(this.privacyPolicyLink).toBeVisible();
-    await expect(this.demoMessage).toBeVisible();
-  }
 }
 
 export default FooterPage;

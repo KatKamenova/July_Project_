@@ -1,4 +1,4 @@
-import { expect, type Page } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 class HeaderPage {
   private page: Page;
@@ -15,13 +15,6 @@ class HeaderPage {
     this.contactLink = page.locator('[data-test="nav-contact"]');
     this.signInLink = page.locator('[data-test="nav-sign-in"]');
     this.LanguageSelector = page.locator('#language');
-  }
-
-  async expectVisible(): Promise<void> {
-    await expect(this.homeLink).toBeVisible();
-    await expect(this.categoriesLink).toBeVisible();
-    await expect(this.contactLink).toBeVisible();
-    await expect(this.LanguageSelector).toBeVisible();
   }
 
   async openSignIn(): Promise<void> {
