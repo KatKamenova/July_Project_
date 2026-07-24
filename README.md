@@ -3,7 +3,7 @@ A small practice project for testing a demo website
 
 ## Getting started
 
-Open `index.html` in your browser to view the demo site.
+Open `https://practicesoftwaretesting.com/` in your browser to view the demo site.
 
 ## Project structure
 
