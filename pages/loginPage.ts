@@ -1,4 +1,4 @@
-import { expect, type Page } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 class LoginPage {
   private page: Page;
@@ -26,10 +26,6 @@ class LoginPage {
     await this.passwordInput.fill(password);
     await this.loginButton.click();
   }
-  expectErrorVisible(): Promise<void> {
-    return expect(this.errorMessageWrongEmail).toBeVisible();
-  }
-
   async navigateToSignUp(): Promise<void> {
     await this.signUpLink.click();
   }

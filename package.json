@@ -2,7 +2,7 @@
   "name": "july_project_",
   "version": "1.0.0",
   "description": "A small practice project for testing a demo website",
-  "main": "script.js",
+  "main": "script.ts",
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed"
