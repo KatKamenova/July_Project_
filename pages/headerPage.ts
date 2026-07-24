@@ -17,14 +17,18 @@ class HeaderPage {
     this.LanguageSelector = page.locator('#language');
   }
 
-  async openSignIn(): Promise<void> {
-    await this.signInLink.click();
+  async open(): Promise<void> {
+    await this.page.goto('/');
   }
 
-  async clickHome(): Promise<void> {
+   async clickHome(): Promise<void> {
     await this.homeLink.click();
   }
 
+  async openSignIn(): Promise<void> {
+    await this.signInLink.click();
+  }
+ 
   async clickCategories(): Promise<void> {
     await this.categoriesLink.click();
   }
