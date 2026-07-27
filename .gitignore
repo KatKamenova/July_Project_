@@ -13,3 +13,7 @@ dist/
 # Playwright
 playwright-report/
 test-results/
+
+# Credentials
+.env
+
