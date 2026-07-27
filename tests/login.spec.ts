@@ -1,13 +1,12 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
 import LoginPage from '../pages/loginPage';
-import Credentials from '../enums/credentials';
 
 test.describe('Authentication flow', () => {
-  test('Valid credentials log the user in', { tag: ['@smoke', '@regression'] }, async ({ page }) => {
+  test('Valid credentials log the user in', { tag: ['@smoke', '@regression'] }, async ({ page, registeredUser }) => {
     const loginPage = new LoginPage(page);
 
     await loginPage.open();
-    await loginPage.loginWithValidCredentials(Credentials.validUser);
+    await loginPage.loginWithValidCredentials(registeredUser);
 
     await expect(page).toHaveURL('https://practicesoftwaretesting.com/account');
   });
