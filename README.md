@@ -1,135 +1,368 @@
-# July Project
+# July Project - Playwright Automation Framework
 
-A small practice project for building and testing a demo website with Playwright, TypeScript, and a simple front-end experience.
+A practice automation project built with **Playwright**, **TypeScript**, and the **Page Object Model (POM)** pattern.
 
-The default application base URL for this project is `https://practicesoftwaretesting.com/`.
+The project demonstrates end-to-end UI test automation against the demo application:
 
-Open that URL in your browser to view the demo site.
+🔗 https://practicesoftwaretesting.com/
 
-This repository contains:
+The framework covers common user flows such as authentication, registration, and page validation while following maintainable automation practices.
 
-- a static demo website served from [index.html](index.html)
-- interactive front-end behavior in [script.ts](script.ts)
-- Playwright end-to-end tests in [tests](tests)
-- page object models in [pages](pages)
-- a browser automation helper in [debug-login.ts](debug-login.ts)
-
-## Features
-
-- Responsive demo landing page
-- Interactive button and contact form behavior
-- Playwright-based UI tests for authentication and registration flows
-- TypeScript support for cleaner development and better tooling
-
-## Tech Stack
-
-- HTML/CSS/ (TypeScript)
-- Playwright
-- TypeScript
-- Node.js
-- dotenv
+---
 
 ## Prerequisites
 
-Make sure you have the following installed:
+Before running this project, make sure you have the following installed:
 
-- Node.js 18 or newer
-- npm
+### Required Software
 
-## Installation
+- **Node.js** 18 or newer
 
-From the project root, install dependencies:
-
-```bash
-npm install
-```
-
-## Running the Demo Website
-
-The project is configured to use the base URL `https://practicesoftwaretesting.com/`.
-
-You can open the live application at `https://practicesoftwaretesting.com/`, or use the local project files as a reference while working on the tests and automation setup.
-
-Example with a simple live server:
+Verify installation:
 
 ```bash
-npx http-server .
+node -v
 ```
 
-Then open the displayed local URL in your browser.
+- **npm** (included with Node.js)
 
-## Running Tests
-
-The project uses Playwright for end-to-end testing against the base URL `https://practicesoftwaretesting.com/`.
-
-Run the full test suite:
+Verify installation:
 
 ```bash
-npm test
+npm -v
 ```
 
-Run tests in headed mode:
+- **Git**
+
+Verify installation:
 
 ```bash
-npm run test:headed
+git --version
 ```
 
-## Environment Variables
+### Development Tools (Recommended)
 
-The helper script [debug-login.ts](debug-login.ts) uses environment variables for login automation. Create a `.env` file in the project root with values such as:
+- **Visual Studio Code** or another TypeScript-compatible IDE
+- **Playwright extension for VS Code** (optional)
+- Modern web browser:
+  - Chromium
+  - Firefox
+  - WebKit
+
+### Project Requirements
+
+- Access to the demo application:
+
+```text
+https://practicesoftwaretesting.com/
+```
+
+- Environment variables configured in a local `.env` file for authentication tests
+
+Example:
 
 ```env
 BASE_URL=https://practicesoftwaretesting.com/
+
 VALID_USER_USERNAME=your-email@example.com
 VALID_USER_PASSWORD=your-password
 ```
+
+---
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Prerequisites](#prerequisites)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Running Tests](#running-tests)
+- [Test Architecture](#test-architecture)
+- [Reports and Artifacts](#reports-and-artifacts)
+- [Future Improvements](#future-improvements)
+- [License](#license)
+
+---
+
+## Project Overview
+
+This repository contains:
+
+- Playwright end-to-end test automation
+- Page Object Model implementation
+- TypeScript-based test development
+- Environment-based configuration using dotenv
+- Reusable test data and constants
+- Browser automation utilities
+
+The tests are executed against:
+
+```text
+https://practicesoftwaretesting.com/
+```
+
+---
+
+## Features
+
+- End-to-end UI automation with Playwright
+- Page Object Model architecture
+- Authentication flow testing
+- Registration flow testing
+- Home page validation
+- Reusable page components
+- Environment variable support
+- Type-safe test development with TypeScript
+- Playwright HTML reporting
+- Screenshot and trace collection on failures
+
+---
+
+## Tech Stack
+
+| Technology | Purpose                         |
+| ---------- | ------------------------------- |
+| TypeScript | Programming language            |
+| Playwright | UI automation framework         |
+| Node.js    | Runtime environment             |
+| npm        | Package management              |
+| dotenv     | Environment variable management |
+| HTML/CSS   | Demo application structure      |
+
+---
 
 ## Project Structure
 
 ```text
 July_Project_/
-├── tests/                     # Playwright test specifications
-│   ├── homePage.spec.ts
-│   ├── login.spec.ts
-│   └── signUp.spec.ts
-├── pages/                     # Page Object classes
-│   ├── homePage.ts
-│   ├── loginPage.ts
-│   ├── signUpPage.ts
-│   ├── headerPage.ts
-│   ├── footerPage.ts
-│   └── forgotPasswordPage.ts
-├── enums/                     # Shared test data and constants
-│   └── credentials.ts
-├── playwright-report/         # Generated Playwright HTML report
-├── test-results/              # Test artifacts such as screenshots and traces
-├── index.html                 # Main demo page
-├── styles.css                 # Page styling
-├── script.ts                  # Demo page interactivity
-├── debug-login.ts             # Helper script for login automation
-├── playwright.config.ts       # Playwright configuration
-├── package.json               # Scripts and dependencies
-├── tsconfig.json              # TypeScript configuration
-├── README.md                  # Project documentation
-└── .env                       # Local environment variables
+│
+├── enums/                         # Shared constants and test data
+│
+├── pages/                         # Page Object Model classes
+│
+├── tests/                         # Playwright test specifications
+│
+├── .env                           # Local environment variables
+├── .gitignore                     # Git ignored files configuration
+├── README.md                      # Project documentation
+│
+├── debug-login.ts                 # Helper script for login debugging
+├── index.html                     # Demo application page
+├── script.ts                      # Demo application interactions
+├── styles.css                     # Demo application styling
+│
+├── package.json                   # Project dependencies and npm scripts
+├── package-lock.json              # Dependency lock file
+├── playwright.config.ts           # Playwright configuration
+└── tsconfig.json                  # TypeScript configuration
 ```
 
-### Key folders
-- [tests](tests) — Playwright test specifications
-- [pages](pages) — page object classes used by the tests
-- [enums](enums) — shared test data and constants
-- [playwright-report](playwright-report) — generated HTML reports
-- [test-results](test-results) — runtime artifacts from test runs
-- [playwright.config.ts](playwright.config.ts) — Playwright configuration and browser setup
-- [package.json](package.json) — project scripts and dependencies
-- [tsconfig.json](tsconfig.json) — TypeScript configuration
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+Navigate to the project folder:
+
+```bash
+cd July_Project_
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Install Playwright browsers:
+
+```bash
+npx playwright install
+```
+
+---
+
+## Configuration
+
+The project uses environment variables to store sensitive information.
+
+Create a `.env` file in the project root:
+
+```env
+BASE_URL=https://practicesoftwaretesting.com/
+
+VALID_USER_USERNAME=your-email@example.com
+VALID_USER_PASSWORD=your-password
+```
+
+The `.env` file should not be committed to Git.
+
+Add it to `.gitignore`:
+
+```text
+.env
+```
+
+---
+
+## Running Tests
+
+### Run the complete test suite
+
+```bash
+npm test
+```
+
+### Run tests in headed mode
+
+```bash
+npm run test:headed
+```
+
+### Run Playwright UI mode
+
+```bash
+npx playwright test --ui
+```
+
+### Run a specific test file
+
+Example:
+
+```bash
+npx playwright test tests/login.spec.ts
+```
+
+---
+
+## Test Architecture
+
+The framework follows the **Page Object Model (POM)** design pattern.
+
+### Test Layer
+
+Test scenarios are located in:
+
+```text
+tests/
+```
+
+Examples:
+
+```text
+login.spec.ts
+signUp.spec.ts
+homePage.spec.ts
+```
+
+The test layer is responsible for:
+
+- Defining test scenarios
+- Validating expected results
+- Calling reusable page methods
+
+---
+
+### Page Object Layer
+
+Page classes are located in:
+
+```text
+pages/
+```
+
+Each page object contains:
+
+- Page locators
+- User interactions
+- Page-specific actions
+
+Examples:
+
+```text
+LoginPage
+SignUpPage
+HomePage
+HeaderPage
+FooterPage
+ForgotPasswordPage
+```
+
+Benefits:
+
+- Improved maintainability
+- Reduced code duplication
+- Easier updates when UI changes
+- Better test readability
+
+---
+
+## Reports and Artifacts
+
+Playwright generates test reports and execution artifacts.
+
+### HTML Report
+
+Generated reports are stored in:
+
+```text
+playwright-report/
+```
+
+Open the report:
+
+```bash
+npx playwright show-report
+```
+
+### Test Artifacts
+
+Stored in:
+
+```text
+test-results/
+```
+
+Contains:
+
+- Screenshots
+- Traces
+- Videos (if configured)
+
+---
+
+## Future Improvements
+
+Planned improvements for this framework:
+
+- Add GitHub Actions CI/CD pipeline
+- Add API testing layer
+- Add automated test data generation
+- Add user cleanup after registration tests
+- Add reusable Playwright fixtures
+- Add cross-browser execution
+- Add accessibility testing
+- Improve test reporting
+
+---
 
 ## Notes
 
-- The project is intended as a practice and learning environment.
-- Tests are organized around real user flows such as login, sign-up, and home-page validation.
-- Page objects are kept in [pages](pages) to make the tests easier to read and maintain.
+- This project is created as a practice and learning environment.
+- Tests are organized around real user flows such as login, registration, and page validation.
+- Page objects are separated from test files to improve scalability and maintainability.
+- Test data and sensitive credentials are managed through environment variables.
+
+---
 
 ## License
 
-This project is for practice and educational use.
+This project is created for educational and portfolio purposes.
