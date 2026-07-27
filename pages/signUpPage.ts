@@ -43,7 +43,8 @@ class SignUpPage {
     await this.firstNameInput.fill(firstName);
     await this.lastNameInput.fill(lastName);
     await this.dobInput.fill(dob);
-    await this.countryInput.selectOption({ label: country || 'United States of America (the)' });
+    await this.countryInput.click();
+    await this.countryInput.selectOption({label: 'United States of America (the)'});
     await this.postalCodeInput.fill(postalCode);
     await this.houseNumberInput.fill(houseNumber);
     await this.streetInput.fill(street);
