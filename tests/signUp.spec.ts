@@ -1,11 +1,10 @@
-import Credentials from '../enums/credentials.ts';
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
 import SignUpPage from '../pages/signUpPage.ts';
 
-test('Sign up with valid credentials', { tag: ['@smoke', '@regression'] }, async ({ page }) => {
+test('Sign up with valid credentials', { tag: ['@smoke', '@regression'] }, async ({ page, newUser }) => {
   const signUpPage = new SignUpPage(page);
 
   await signUpPage.open();
-  await signUpPage.register(Credentials.validUser);
+  await signUpPage.register(newUser);
   await expect(page).toHaveURL('/auth/login');
 });
