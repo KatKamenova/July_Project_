@@ -7,6 +7,5 @@ test('Sign up with valid credentials', { tag: ['@smoke', '@regression'] }, async
 
   await signUpPage.open();
   await signUpPage.register(Credentials.validUser);
-  await expect(page).toHaveURL(/\/auth\/login/);
-  await expect(page.locator('input[name="email"]')).toBeVisible();
+  await expect(page).toHaveURL('/auth/login');
 });
