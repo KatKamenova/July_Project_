@@ -19,12 +19,12 @@ class LoginPage {
 
   async open(): Promise<void> {
     await this.page.goto('/auth/login');
-    console.log('Current URL:', this.page.url());
+    console.log('Immediately:', await this.emailInput.count());
+    await this.emailInput.waitFor({ state: 'visible' });
+    console.log('After 1 sec:', await this.emailInput.count());
   }
 
   async loginWithValidCredentials({ emailAddress, password }: { emailAddress: string; password: string }): Promise<void> {
-    console.log('URL:', this.page.url());
-    console.log('Email count:', await this.emailInput.count());
     await this.emailInput.fill(emailAddress);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
