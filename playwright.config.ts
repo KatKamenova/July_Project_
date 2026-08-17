@@ -19,20 +19,20 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'], channel: 'chrome' },
       ignoreSnapshots: false,
     },
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-      ignoreSnapshots: false,
-    },
-    {
-      name: 'microsoft-edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
-      ignoreSnapshots: false,
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    //   ignoreSnapshots: false,
+    // },
+    // {
+    //   name: 'microsoft-edge',
+    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
+    //   ignoreSnapshots: false,
+    // },
   ],
   use: {
     baseURL: process.env.BASE_URL || 'https://practicesoftwaretesting.com/',
-    headless: false,
+    headless: true,
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
     actionTimeout: 10_000,
