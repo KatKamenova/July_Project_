@@ -19,9 +19,11 @@ class LoginPage {
 
   async open(): Promise<void> {
     await this.page.goto('/auth/login');
+    console.log('Current URL:', this.page.url());
   }
 
   async loginWithValidCredentials({ emailAddress, password }: { emailAddress: string; password: string }): Promise<void> {
+    console.log('Current URL before email:', this.page.url());
     await this.emailInput.fill(emailAddress);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
