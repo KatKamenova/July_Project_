@@ -10,7 +10,7 @@ class LoginPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.emailInput = page.locator('[data-test="email"]');
+    this.emailInput = page.getByRole('textbox', { name: 'Email address *' }); //page.locator('[data-test="email"]'); 
     this.passwordInput = page.locator('[data-test="password"]');
     this.loginButton = page.locator('[data-test="login-submit"]');
     this.errorMessageWrongEmail = page.getByText('Email is required', { exact: true });
