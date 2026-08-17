@@ -23,7 +23,8 @@ class LoginPage {
   }
 
   async loginWithValidCredentials({ emailAddress, password }: { emailAddress: string; password: string }): Promise<void> {
-    await this.emailInput.waitFor({ state: 'visible' });
+    console.log('URL:', this.page.url());
+    console.log('Email count:', await this.emailInput.count());
     await this.emailInput.fill(emailAddress);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
